@@ -74,13 +74,13 @@
         android:layout_marginStart="506dp" />
 
     <ImageView
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/fat_chicken"
         android:src="@drawable/kip"
-        android:layout_alignTop="@+id/snake"
-        android:layout_alignLeft="@+id/flush_text_3"
-        android:layout_alignStart="@+id/flush_text_3" />
+        android:layout_alignTop="@+id/flush"
+        android:layout_toLeftOf="@+id/arrowleft"
+        android:layout_toStartOf="@+id/arrowleft" />
 
     <ImageView
         android:layout_width="30pt"
