@@ -10,7 +10,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-
+    int dis_ap_time = 800;
+    int move_space = 35;
+    int textpop_time = 3000;
     int count_flush = 0;
     boolean feather_visible = false;
     boolean eggs_visible = false;
@@ -169,13 +171,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 textPopUp(flush_text_4);
-                if (eggs_visible == true) {
+                if (eggs_visible) {
                     spriteInvisble(eggs);
                     flush_text_4.setVisibility(View.INVISIBLE);
                     textPopUp(snake_text_1);
                     snake_ate_eggs = true;
                 }
-                if (fatchicken_2_visible == true){
+                if (fatchicken_2_visible){
                     spriteInvisble(snakeSprite);
                     snakeAnimation();
                 }
@@ -197,7 +199,7 @@ public class MainActivity extends AppCompatActivity {
                     textPopUp(fatchicken_text_2);
                     eggs.postDelayed(new Runnable() {
                         public void run() {
-                            eggs.setVisibility(View.VISIBLE);
+                            spriteVisible(eggs);
                             eggs_visible = true;
                         }
                     }, 2000);
@@ -208,13 +210,21 @@ public class MainActivity extends AppCompatActivity {
                     // start Lockactivity
                     Intent lockactivity = new Intent(MainActivity.this, LockActivity.class);
                     startActivity(lockactivity);
+
+                    // get result
                     Intent mainactivity_from_lock = getIntent();
-                   // Boolean solved = getIntent().getExtras().getBoolean("code");
-                    Boolean solved = mainactivity_from_lock.getBooleanExtra("code", true);
+                    Boolean solved = getIntent().getExtras().getBoolean("solved");
+                    //Boolean solved = mainactivity_from_lock.getBooleanExtra("code", true);
                     if (solved == true){
+                        fatChickenSprite_2.postDelayed(new Runnable() {
+                            public void run() {
+                                fatChickenSprite_2.setVisibility(View.VISIBLE);
+                                spriteVisible(fatChickenSprite_2);
+                                textPopUp(fatchicken_text_4);
+                            }
+                        }, 2000);
                         spriteInvisble(fatChickenSprite);
-                        spriteVisible(fatChickenSprite_2);
-                        textPopUp(fatchicken_text_4);
+
                     }
                 }
             }
@@ -240,8 +250,9 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 text.setVisibility(View.GONE);
             }
-        }, 2000);
+        }, textpop_time);
     }
+
     public void spriteVisible(final ImageView sprite){
         sprite.setVisibility(View.VISIBLE);
     }
@@ -249,11 +260,11 @@ public class MainActivity extends AppCompatActivity {
         sprite.setVisibility(View.INVISIBLE);
     }
     public void spriteLeft(final ImageView sprite){
-        ((ViewGroup.MarginLayoutParams) sprite.getLayoutParams()).leftMargin -= 35;
+        ((ViewGroup.MarginLayoutParams) sprite.getLayoutParams()).leftMargin -= move_space;
         sprite.requestLayout();
     }
     public void spriteRight (final ImageView sprite){
-        ((ViewGroup.MarginLayoutParams) sprite.getLayoutParams()).leftMargin += 35;
+        ((ViewGroup.MarginLayoutParams) sprite.getLayoutParams()).leftMargin += move_space;
         sprite.requestLayout();
     }
     // make sprite disappear and reappear again
@@ -263,7 +274,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 sprite.setVisibility(View.VISIBLE);
             }
-        }, 800);
+        }, dis_ap_time);
     }
     // make sprite appear, then disappear again
     public void spriteApDis (final ImageView sprite){
@@ -272,7 +283,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 sprite.setVisibility(View.GONE);
             }
-        }, 800);
+        }, dis_ap_time);
     }
     public void snakeAnimation (){
 //        spriteApDis(snakesprite2);
