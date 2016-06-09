@@ -3,6 +3,7 @@ package com.example.tinkazorge.pointclickgame;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -19,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     boolean chicken_talked = false;
     boolean snake_ate_eggs = false;
     boolean fatchicken_2_visible = false;
+    boolean solved = false;
+
 
     // define widgets
     ImageView flusher;
@@ -55,9 +58,9 @@ public class MainActivity extends AppCompatActivity {
         chickenSprite = (ImageView) findViewById(R.id.chicken_1);
         fatChickenSprite = (ImageView) findViewById(R.id.fat_chicken);
         fatChickenSprite_2 = (ImageView) findViewById(R.id.fat_chicken_2);
-        snakesprite_2 = (ImageView) findViewById(R.id.snake_sprite_2);
+//        snakesprite_2 = (ImageView) findViewById(R.id.snake_sprite_2);
         snakeSprite = (ImageView) findViewById(R.id.snake);
-        snakesprite_3 = (ImageView) findViewById(R.id.snake_sprite_3);
+//        snakesprite_3 = (ImageView) findViewById(R.id.snake_sprite_3);
         chickenSprite_2 = (ImageView) findViewById(R.id.chicken_2);
         chickenSprite_3 = (ImageView) findViewById(R.id.chicken_3);
         flusher = (ImageView) findViewById(R.id.flush);
@@ -77,8 +80,8 @@ public class MainActivity extends AppCompatActivity {
 
         // make certain widgets invisible
         spriteInvisble(snakeSprite);
-        spriteInvisble(snakesprite_2);
-        spriteInvisble(snakesprite_3);
+//        spriteInvisble(snakesprite_2);
+//        spriteInvisble(snakesprite_3);
         spriteInvisble(chickenSprite_2);
         spriteInvisble(chickenSprite_3);
         spriteInvisble(feather);
@@ -204,30 +207,21 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }, 2000);
                 }
+
                 if (snake_ate_eggs == true) {
                     spriteInvisble(eggs);
                     textPopUp(fatchicken_text_3);
                     // start Lockactivity
                     Intent lockactivity = new Intent(MainActivity.this, LockActivity.class);
-                    startActivity(lockactivity);
+                    startActivityForResult(lockactivity, 1);
+                    Bundle extras = getIntent().getExtras();
+//                        if (solved == true) {
+//                            Log.e("hoi", "in true");
+//                            textPopUp(fatchicken_text_4);
+//                            }
+                        }
+                        }
 
-                    // get result
-                    Intent mainactivity_from_lock = getIntent();
-                    Boolean solved = getIntent().getExtras().getBoolean("solved");
-                    //Boolean solved = mainactivity_from_lock.getBooleanExtra("code", true);
-                    if (solved == true){
-                        fatChickenSprite_2.postDelayed(new Runnable() {
-                            public void run() {
-                                fatChickenSprite_2.setVisibility(View.VISIBLE);
-                                spriteVisible(fatChickenSprite_2);
-                                textPopUp(fatchicken_text_4);
-                            }
-                        }, 2000);
-                        spriteInvisble(fatChickenSprite);
-
-                    }
-                }
-            }
         });
 
 
@@ -268,7 +262,7 @@ public class MainActivity extends AppCompatActivity {
         sprite.requestLayout();
     }
     // make sprite disappear and reappear again
-    public void spriteDisRe(final ImageView sprite){
+    public void spriteDisRe(final ImageView sprite) {
         spriteInvisble(sprite);
         sprite.postDelayed(new Runnable() {
             public void run() {
@@ -285,6 +279,32 @@ public class MainActivity extends AppCompatActivity {
             }
         }, dis_ap_time);
     }
+
+    public void textPopUpLong (TextView text){
+        fatchicken_text_4.setVisibility(View.VISIBLE);
+        fatchicken_text_4.postDelayed(new Runnable() {
+            public void run() {
+                fatchicken_text_4.setVisibility(View.GONE);
+            }
+        }, 7000);
+    }
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
+
+        if (resultCode == RESULT_OK) {
+            textPopUpLong(fatchicken_text_4);
+            spriteVisible(fatChickenSprite_2);
+            spriteInvisble(fatChickenSprite);
+            Log.e("hoi", "in true");
+            for (int i = 0; i < 5; i++) {
+                spriteRight(fatChickenSprite_2);
+            }
+        } else {
+            spriteInvisble(fatChickenSprite);
+            Log.e("hoi", "in false");
+        }
+}
+
     public void snakeAnimation (){
 //        spriteApDis(snakesprite2);
 //        spriteApDis(snakesprite3);
