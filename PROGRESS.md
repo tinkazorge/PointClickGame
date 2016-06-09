@@ -39,3 +39,6 @@ Ik ben bezig geweest met het afmaken va de puzzels en het ordenen van de methods
 
 ###Dag 8 
 Ik heb mijn code laten zien en code hour, en martijn raadde me aan een subklasse te maken. Ik heb wat veel code in mijn mainactivity staan die verdeeld moet worden over wat meer klassen. Dit zal gebeuren als ik mijn clickItems klasse ga inrichten. Verder heb ik wat problemen met de gitRepository; ik moet mijn code in mijn Programmeerproject repository krijgen, want ik heb per ongeluk hier een nieuwe repository voor gemaakt waarvan ik het pad niet kan vinden en dus ook niet kan committen. 
+
+###Dag 9
+Ik heb eindelijk de boolean bug opgelost waar ik twee dagen op heb zitten prutsen: ik heb ActivityOnResult gebruikt en de hieropvolgende acties in de methode gezet. Ik moet nog kijken of dit op een mooiere manier kan, maar dit was de enige manier waarop de code lijkt te werken. Als men de puzzel oplost, komt de kip nu uit zijn hokje. 
