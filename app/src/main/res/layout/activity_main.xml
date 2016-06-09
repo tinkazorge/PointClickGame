@@ -74,13 +74,22 @@
         android:layout_marginStart="506dp" />
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="150dp"
         android:id="@+id/fat_chicken"
         android:src="@drawable/kip"
-        android:layout_alignTop="@+id/snake"
-        android:layout_alignLeft="@+id/flush_text_3"
-        android:layout_alignStart="@+id/flush_text_3" />
+        android:layout_alignTop="@+id/flush"
+        android:layout_toLeftOf="@+id/arrowleft"
+        android:layout_toStartOf="@+id/arrowleft"
+        android:layout_marginRight="210dp"/>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/eggs"
+        android:src="@drawable/eggs"
+        android:layout_marginTop="230dp"
+        android:layout_marginLeft="230dp"/>
 
     <ImageView
         android:layout_width="30pt"
@@ -162,7 +171,7 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Snake: I'm sssssssso hungry!"
         android:id="@+id/flush_text_4"
-        android:textColor="#FFFFFF"
+        android:textColor="#00FF00"
         android:textSize="8pt"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"/>
@@ -173,10 +182,65 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="I'd lay some eggs, but I'm too stressed out..."
         android:id="@+id/fatchicken_text_1"
-        android:textColor="#FFFFFF"
+        android:textColor="#FF0000"
         android:textSize="8pt"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Thanks for the massage mate, I feel better! You can have my eggs if you want!"
+        android:id="@+id/fatchicken_text_2"
+        android:textColor="#FF0000"
+        android:textSize="7pt"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="I'm sssssssstill hungry!"
+        android:id="@+id/snake_text_1"
+        android:textColor="#00FF00"
+        android:textSize="8pt"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Would you mind letting me out mate? I've got the combination right here..."
+        android:id="@+id/fatchicken_text_3"
+        android:textColor="#FF0000"
+        android:textSize="7.5pt"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="I'm free!!"
+        android:id="@+id/fatchicken_text_4"
+        android:textColor="#FF0000"
+        android:textSize="7.5pt"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fat_chicken_2"
+        android:src="@drawable/cage3"
+        android:layout_marginBottom="12dp"
+        android:layout_alignLeft="@+id/fat_chicken"
+        android:layout_alignStart="@+id/fat_chicken"
+        android:layout_alignRight="@+id/fat_chicken"
+        android:layout_alignEnd="@+id/fat_chicken"
+        android:layout_alignTop="@+id/fat_chicken" />
 
 </RelativeLayout>
