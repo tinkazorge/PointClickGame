@@ -42,3 +42,6 @@ Ik heb mijn code laten zien en code hour, en martijn raadde me aan een subklasse
 
 ###Dag 9
 Ik heb eindelijk de boolean bug opgelost waar ik twee dagen op heb zitten prutsen: ik heb ActivityOnResult gebruikt en de hieropvolgende acties in de methode gezet. Ik moet nog kijken of dit op een mooiere manier kan, maar dit was de enige manier waarop de code lijkt te werken. Als men de puzzel oplost, komt de kip nu uit zijn hokje. 
+'
+###Dag 10
+Voor de presentatie heb ik het level afgrond, maar het zit nog vol bugs. Belangrijk is de animaties die ik nog niet heb toegevoegd, deze gaan me veel tijd kosten, maar op dit moment verdwijnen de sprites gewoon op het einde (zoals de kippen en de slang). Ik heb ook gewerkt aan het vinden van de layoutparameters om te zorgen dat de hoofdsprite niet van het scherm af kan lopen. 
