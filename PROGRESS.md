@@ -45,3 +45,6 @@ Ik heb eindelijk de boolean bug opgelost waar ik twee dagen op heb zitten prutse
 '
 ###Dag 10
 Voor de presentatie heb ik het level afgrond, maar het zit nog vol bugs. Belangrijk is de animaties die ik nog niet heb toegevoegd, deze gaan me veel tijd kosten, maar op dit moment verdwijnen de sprites gewoon op het einde (zoals de kippen en de slang). Ik heb ook gewerkt aan het vinden van de layoutparameters om te zorgen dat de hoofdsprite niet van het scherm af kan lopen. 
+
+###Dag 11
+Ik heb bijna alle bugs gefixt. De kip kan niet meer van het scherm aflopen, de textviews kunnen niet meer over elkaar en ik heb een range toegevoegd waardoor je ergens heen moet lopen voor je erop kunt klikken. Als de slang na alle puzzels ten slotte verdwijnt, opent er een nieuw scherm waarop staat: first level completed! 
