@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     int move_space = 35;
     int textpop_time = 3000;
     int count_flush = 0;
+    int max_right = 900;
+    int max_left = 4;
     boolean feather_visible = false;
     boolean eggs_visible = false;
     boolean chicken_talked = false;
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     boolean fatchicken_2_visible = false;
     boolean solved = false;
     boolean fat_chicken_2_visible = false;
+    boolean toilet_clickable;
 
 
 
@@ -44,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView feather;
     ImageView eggs;
     ImageView cage;
+    ImageView toilet;
     TextView flush_text_1;
     TextView flush_text_2;
     TextView flush_text_3;
@@ -72,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
         flusher = (ImageView) findViewById(R.id.flush);
         feather = (ImageView) findViewById(R.id.feather_1);
         cage = (ImageView) findViewById(R.id.cage_2);
+        toilet = (ImageView) findViewById(R.id.toilet);
         flush_text_1 = (TextView) findViewById(R.id.flush_text_1);
         flush_text_2 = (TextView) findViewById(R.id.flush_text_2);
         flush_text_3 = (TextView) findViewById(R.id.flush_text_3);
@@ -109,19 +114,22 @@ public class MainActivity extends AppCompatActivity {
         rightArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // make the sprite that stands still disappear for a second and reappear
-                spriteInvisble(chickenSprite);
-                spriteDisRe(chickenSprite);
-                // make the Sprite that walks appear for a second and then disappear
-                spriteVisible(chickenSprite_2);
-                spriteApDis(chickenSprite_2);
+                int left_margin = getMargin(chickenSprite);
+                if (left_margin < max_right) {
+                    // make the sprite that stands still disappear for a second and reappear
+                    spriteInvisble(chickenSprite);
+                    spriteDisRe(chickenSprite);
+                    // make the Sprite that walks appear for a second and then disappear
+                    spriteVisible(chickenSprite_2);
+                    spriteApDis(chickenSprite_2);
 //                // update LeftMargin to make chickensprite move
-                spriteRight(chickenSprite);
+                    spriteRight(chickenSprite);
 //
 //                // update margins of invisible sprites
-                spriteRight(chickenSprite_2);
-                spriteRight(chickenSprite_3);
-                spriteRight(feather);
+                    spriteRight(chickenSprite_2);
+                    spriteRight(chickenSprite_3);
+                    spriteRight(feather);
+                }
             }
         });
 
@@ -130,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
             int left_margin = getMargin(chickenSprite);
-                if (left_margin> 4) {
+                if (left_margin> max_left) {
                     // make the sprite that stands still disappear for a second and reappear
                     spriteInvisble(chickenSprite);
                     spriteDisRe(chickenSprite);
@@ -173,10 +181,11 @@ public class MainActivity extends AppCompatActivity {
                     textPopUp(flush_text_3);
                 }
                 // the 5th time
-                if (count_flush > 4) {
+                if (count_flush > 4 && solved == false) {
                     // make snake appear and show flush text 4
                     spriteVisible(snakeSprite);
                     textPopUp(flush_text_4);
+                    Log.v("hoi", "hoi" + solved);
                 }
             }
         });
@@ -190,15 +199,6 @@ public class MainActivity extends AppCompatActivity {
                     flush_text_4.setVisibility(View.INVISIBLE);
                     textPopUp(snake_text_1);
                     snake_ate_eggs = true;
-                }
-                if (fatchicken_2_visible){
-                    spriteInvisble(fatChickenSprite_2);
-                    textPopUp(snake_text_2);
-                    snakeSprite.postDelayed(new Runnable() {
-                        public void run() {
-                            spriteInvisble(snakeSprite);
-                        }
-                    }, 2000);
                 }
             }
         });
@@ -224,24 +224,29 @@ public class MainActivity extends AppCompatActivity {
                     }, 2000);
                 }
 
-                if (snake_ate_eggs == true) {
+                if (snake_ate_eggs) {
                     spriteInvisble(eggs);
                     textPopUp(fatchicken_text_3);
                     // start Lockactivity
                     Intent lockactivity = new Intent(MainActivity.this, LockActivity.class);
                     startActivityForResult(lockactivity, 1);
-                    Bundle extras = getIntent().getExtras();
+                    Intent mainActivityFromLock = getIntent();
+                    if (solved) {
+                        Bundle booleans_solved = mainActivityFromLock.getExtras();
+                        Boolean boolean_solved = (Boolean) booleans_solved.get("solved");
+                        Log.v("hoi2", "hoi2" + solved);
+                        if (boolean_solved){
+                            solved = true;
+                        }
                     }
                 }
+            }
         });
 
         // if user clicks fat chicken sprite 2
         fatChickenSprite_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //feather.requestLayout();
-                //fatChickenSprite_2.requestLayout();
-                //((ViewGroup.MarginLayoutParams) fatChickenSprite_2.getLayoutParams()).leftMargin = (((ViewGroup.MarginLayoutParams) feather.getLayoutParams()).leftMargin);
                 fat_chicken_2_visible = true;
                 textPopUp(fatchicken_text_4);
             }
@@ -325,15 +330,51 @@ public class MainActivity extends AppCompatActivity {
 
         if (resultCode == RESULT_OK) {
             solved = true;
-            spriteVisible(fatChickenSprite_2);
+            //spriteVisible(fatChickenSprite_2);
             spriteVisible(cage);
             spriteInvisble(fatChickenSprite);
+
+            snakeSprite.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (solved) {
+                        spriteInvisble(fatChickenSprite_2);
+                        textPopUp(snake_text_2);
+                        snakeSprite.postDelayed(new Runnable() {
+                            public void run() {
+                                spriteInvisble(snakeSprite);
+                            }
+                        }, 3000);
+                        toilet_clickable = true;
+                    }
+                }
+            });
+            toilet.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (toilet_clickable){
+                        spriteInvisble(chickenSprite);
+                        spriteInvisble(feather);
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        Intent winactivity = new Intent(MainActivity.this, WinActivity.class);
+                        startActivity(winactivity);
+                    }
+                }
+            });
         }
     }
+
     public int getMargin(final ImageView sprite){
         RelativeLayout.MarginLayoutParams params = (RelativeLayout.LayoutParams) chickenSprite.getLayoutParams();
-        Log.e("hoi", "hoi");
         chickenSprite.setLayoutParams(params);
-        return params.rightMargin;
+        return params.leftMargin;
     }
+    public void getSolved () {
+
+    }
+
 }
