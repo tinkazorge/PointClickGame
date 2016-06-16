@@ -48,3 +48,9 @@ Voor de presentatie heb ik het level afgrond, maar het zit nog vol bugs. Belangr
 
 ###Dag 11
 Ik heb bijna alle bugs gefixt. De kip kan niet meer van het scherm aflopen, de textviews kunnen niet meer over elkaar en ik heb een range toegevoegd waardoor je ergens heen moet lopen voor je erop kunt klikken. Als de slang na alle puzzels ten slotte verdwijnt, opent er een nieuw scherm waarop staat: first level completed! 
+
+###Dag 12
+Ik heb nog een paar nieuwe klikbare objecten toegevoegd. Er is een scroll die een hint geeft over het drie keer doortrekken; hier kun je alleen naar kijken en dan weer terug. Daarnaast is er een lichtknop die drie lampen laat flikkeren in een bepaalde volgorde; dit is een code die nodig is voor het volgende level. 
+
+###Dag 13
+Ik heb het laatste level toegevoegd, waarin je een brug moet bouwen van buizen in de volgorde waarin je de lampen hebt zien flikkeren in het vorige level. 
