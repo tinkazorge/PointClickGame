@@ -54,3 +54,6 @@ Ik heb nog een paar nieuwe klikbare objecten toegevoegd. Er is een scroll die ee
 
 ###Dag 13
 Ik heb het laatste level toegevoegd, waarin je een brug moet bouwen van buizen in de volgorde waarin je de lampen hebt zien flikkeren in het vorige level. 
+
+###Dag 14
+Ik heb vandaag zitten stuntelen met een memory error die ik maar bleef krijgen, ook al heb ik het geheugengebruik op duizenden manieren proberen te vergroten. Uiteindelijk bleek de emulator het probleem te zijn. Ik kan mijn app niet starten op mijn eigen telefoon om de een of andere reden, maar gelukkig doet ie het prima op de telefoon van de minor programmeren. Mijn spel bleek gewoon te werken. Ik ben nu wel ongeveer klaar om de betaversie in te leveren, ok al is de code nog al een puinhoop. 
