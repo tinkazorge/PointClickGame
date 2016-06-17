@@ -10,6 +10,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:screenOrientation="portrait"
     tools:context="com.example.tinkazorge.pointclickgame.MainActivity"
     android:weightSum="1"
     android:clickable="true"
@@ -19,7 +20,7 @@
     <ImageView
         android:layout_width="100pt"
         android:layout_height="80pt"
-        android:id="@+id/imageView2"
+        android:id="@+id/toilet"
         android:src="@drawable/toilet2"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
@@ -28,23 +29,22 @@
         android:layout_marginEnd="31dp" />
 
     <ImageView
-        android:layout_width="wrap_content"
+        android:layout_width="30dp"
         android:layout_height="50pt"
         android:id="@+id/flush"
         android:src="@drawable/flush"
-        android:layout_alignTop="@+id/imageView2"
-        android:layout_alignRight="@+id/imageView2"
-        android:layout_alignEnd="@+id/imageView2"
+        android:layout_alignTop="@+id/toilet"
+        android:layout_marginLeft="198pt"
         android:layout_marginTop="31dp" />
 
     <ImageView
-        android:layout_width="100dp"
+        android:layout_width="80dp"
         android:layout_height="70dp"
         android:id="@+id/snake"
         android:src="@drawable/snake2"
         android:layout_alignTop="@+id/flush"
-        android:layout_alignLeft="@+id/imageView2"
-        android:layout_alignStart="@+id/imageView2"
+        android:layout_alignLeft="@+id/toilet"
+        android:layout_alignStart="@+id/toilet"
         android:layout_marginLeft="38dp"
         android:layout_marginStart="38dp" />
 
@@ -73,6 +73,25 @@
         android:layout_marginLeft="506dp"
         android:layout_marginStart="506dp" />
 
+
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:id="@+id/cage_2"
+        android:src="@drawable/cage2_2"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="140dp"
+        />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:id="@+id/fat_chicken_2"
+        android:src="@drawable/kipfree"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="180dp"
+        />
     <ImageView
         android:layout_width="80dp"
         android:layout_height="150dp"
@@ -91,13 +110,6 @@
         android:layout_marginTop="230dp"
         android:layout_marginLeft="230dp"/>
 
-    <ImageView
-        android:layout_width="30pt"
-        android:layout_height="82dp"
-        android:id="@+id/chicken_1"
-        android:layout_gravity="bottom"
-        android:src="@drawable/chicken1"
-        android:layout_alignParentBottom="true"/>
 
     <ImageView
         android:layout_width="20pt"
@@ -122,11 +134,22 @@
         android:layout_alignParentStart="true"/>
 
     <ImageView
+        android:layout_width="30pt"
+        android:layout_height="100dp"
+        android:id="@+id/chicken_1"
+        android:layout_gravity="bottom"
+        android:src="@drawable/chicken1"
+        android:layout_marginLeft="0dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="215dp"/>
+
+    <ImageView
         android:layout_width="50dp"
-        android:layout_height="wrap_content"
+        android:layout_height="25dp"
         android:id="@+id/feather_1"
         android:src="@drawable/feather"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="250dp"
         android:layout_marginLeft="30dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -169,9 +192,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Snake: I'm sssssssso hungry!"
+        android:text="I'm sssssssso hungry!"
         android:id="@+id/flush_text_4"
-        android:textColor="#00FF00"
+        android:textColor="#FFFFFF"
         android:textSize="8pt"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"/>
@@ -182,7 +205,7 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="I'd lay some eggs, but I'm too stressed out..."
         android:id="@+id/fatchicken_text_1"
-        android:textColor="#FF0000"
+        android:textColor="#FFFFFF"
         android:textSize="8pt"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"/>
@@ -191,9 +214,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Thanks for the massage mate, I feel better! You can have my eggs if you want!"
+        android:text="Thanks for the massage mate! You can have my eggs if you want!"
         android:id="@+id/fatchicken_text_2"
-        android:textColor="#FF0000"
+        android:textColor="#FFFFFF"
         android:textSize="7pt"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"/>
@@ -204,7 +227,7 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="I'm sssssssstill hungry!"
         android:id="@+id/snake_text_1"
-        android:textColor="#00FF00"
+        android:textColor="#FFFFFF"
         android:textSize="8pt"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"/>
@@ -213,9 +236,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Would you mind letting me out mate? I've got the combination right here..."
+        android:text="Would you mind letting me out mate? I've got the combination here..."
         android:id="@+id/fatchicken_text_3"
-        android:textColor="#FF0000"
+        android:textColor="#FFFFFF"
         android:textSize="7.5pt"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"/>
@@ -226,21 +249,101 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="I'm free!!"
         android:id="@+id/fatchicken_text_4"
-        android:textColor="#FF0000"
+        android:textColor="#ffffff"
+        android:textSize="7.5pt"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="I'm sssssso sssssatisfied"
+        android:id="@+id/snake_text_2"
+        android:textColor="#FFFFFF"
+        android:textSize="8pt"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Now I can escape through the toilet!"
+        android:id="@+id/chicken_text"
+        android:textColor="#ffffff"
         android:textSize="7.5pt"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"/>
 
     <ImageView
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="250dp"
+        android:layout_marginTop="130dp"
+        android:src="@drawable/scroll6"
+        android:id="@+id/scroll"/>
+
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/fat_chicken_2"
-        android:src="@drawable/cage3"
-        android:layout_marginBottom="12dp"
-        android:layout_alignLeft="@+id/fat_chicken"
-        android:layout_alignStart="@+id/fat_chicken"
-        android:layout_alignRight="@+id/fat_chicken"
-        android:layout_alignEnd="@+id/fat_chicken"
-        android:layout_alignTop="@+id/fat_chicken" />
+        android:id="@+id/bulbs_off_1"
+        android:src="@drawable/bulbs_off"
+        android:layout_above="@+id/toilet"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="8dp"/>
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bulbs_off_2"
+        android:src="@drawable/bulbs_off"
+        android:layout_above="@+id/toilet"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="80dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bulbs_off_3"
+        android:src="@drawable/bulbs_off"
+        android:layout_above="@+id/toilet"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="120dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bulbs_on_1"
+        android:src="@drawable/bulb_on"
+        android:layout_above="@+id/toilet"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="-10dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bulbs_on_2"
+        android:src="@drawable/bulb_on"
+        android:layout_above="@+id/toilet"
+        android:layout_marginLeft="49dp"
+        android:layout_marginTop="-10dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bulbs_on_3"
+        android:layout_marginLeft="88dp"
+        android:layout_marginTop="-10dp"
+        android:src="@drawable/bulb_on"
+        android:layout_above="@+id/toilet" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/switch_bulb"
+        android:layout_marginTop="140dp"
+        android:layout_marginLeft="305dp"
+        android:src="@drawable/switchbulb" />
+    />
 </RelativeLayout>
