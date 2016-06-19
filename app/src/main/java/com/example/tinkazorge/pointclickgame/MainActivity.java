@@ -1,6 +1,8 @@
 package com.example.tinkazorge.pointclickgame;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.media.MediaPlayer;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,7 +18,7 @@ import android.widget.TextView;
 import javax.xml.datatype.Duration;
 
 public class MainActivity extends AppCompatActivity {
-    int dis_ap_time = 800;
+    int dis_ap_time = 300;
     int move_space = 35;
     int textpop_time = 3000;
     int count_flush = 0;
@@ -30,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
     boolean solved = false;
     boolean fat_chicken_2_visible = false;
     boolean toilet_clickable;
-    boolean range_clickable = false;
     boolean feather_used = false;
+    boolean lock_clicked = false;
 
     // define widgets
     ImageView flusher;
@@ -67,16 +69,22 @@ public class MainActivity extends AppCompatActivity {
     TextView fatchicken_text_4;
     TextView snake_text_1;
     TextView snake_text_2;
+    TextView chicken_text;
+    MediaPlayer bite_sound;
+    MediaPlayer chicken_sound;
+    MediaPlayer clank_sound;
+    MediaPlayer splash_sound;
+    MediaPlayer flush_sound;
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.activity_main);
 
         // find widgets
-        RelativeLayout rlayout = (RelativeLayout) findViewById(R.id.rootRL);
         chickenSprite = (ImageView) findViewById(R.id.chicken_1);
         fatChickenSprite = (ImageView) findViewById(R.id.fat_chicken);
         fatChickenSprite_2 = (ImageView) findViewById(R.id.fat_chicken_2);
@@ -103,11 +111,17 @@ public class MainActivity extends AppCompatActivity {
         fatchicken_text_2 = (TextView) findViewById(R.id.fatchicken_text_2);
         fatchicken_text_3 = (TextView) findViewById(R.id.fatchicken_text_3);
         fatchicken_text_4 = (TextView) findViewById(R.id.fatchicken_text_4);
+        chicken_text = (TextView) findViewById(R.id.chicken_text);
         snake_text_1 = (TextView) findViewById(R.id.snake_text_1);
         snake_text_2 = (TextView) findViewById(R.id.snake_text_2);
         rightArrow = (ImageView) findViewById(R.id.arrowright);
         leftArrow = (ImageView) findViewById(R.id.arrowleft);
         eggs = (ImageView) findViewById(R.id.eggs);
+        bite_sound = MediaPlayer.create(this, R.raw.bite_sound);
+        bite_sound = MediaPlayer.create(this, R.raw.bite_sound);
+        bite_sound = MediaPlayer.create(this, R.raw.bite_sound);
+        bite_sound = MediaPlayer.create(this, R.raw.bite_sound);
+        bite_sound = MediaPlayer.create(this, R.raw.bite_sound);
 
         // make certain widgets invisible
         spriteInvisble(snakeSprite);
@@ -175,8 +189,7 @@ public class MainActivity extends AppCompatActivity {
         flusher.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (getRange(flusher, 750, 850)) {
-
+                if (getRange(flusher, 420, 750)) {
                     // update count_flush
                     count_flush++;
                     // the first two times
@@ -213,14 +226,19 @@ public class MainActivity extends AppCompatActivity {
         snakeSprite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (getRange(snakeSprite, 600, 810)) {
+                if (getRange(snakeSprite, 420, 600)) {
                     defaultTextVisibility();
                     textPopUp(flush_text_4);
-                    if (eggs_visible) {
-                        spriteInvisble(eggs);
-                        flush_text_4.setVisibility(View.INVISIBLE);
-                        defaultTextVisibility();
-                        textPopUp(snake_text_1);
+                    if (eggs_visible && snake_ate_eggs == false) {
+                        bite_sound.start();
+                        snakeSprite.postDelayed(new Runnable() {
+                            public void run() {
+                            spriteInvisble(eggs);
+                            flush_text_4.setVisibility(View.INVISIBLE);
+                            defaultTextVisibility();
+                            textPopUp(snake_text_1);
+                            }
+                        }, 700);
                         snake_ate_eggs = true;
                     }
                 }
@@ -231,7 +249,7 @@ public class MainActivity extends AppCompatActivity {
         fatChickenSprite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (getRange(fatChickenSprite, 200, 450)) {
+                if (getRange(fatChickenSprite, 100, 400)) {
                     chicken_talked = true;
                     // if there is no feather yet
                     if (feather_visible == false) {
@@ -260,21 +278,24 @@ public class MainActivity extends AppCompatActivity {
                         defaultTextVisibility();
                         textPopUp(fatchicken_text_3);
                         // start Lockactivity
-                        Intent lockactivity = new Intent(MainActivity.this, LockActivity.class);
-                        startActivityForResult(lockactivity, 1);
+                        if (lock_clicked == false){
+                        fatChickenSprite.postDelayed(new Runnable() {
+                            public void run() {
+                                Intent lockactivity = new Intent(MainActivity.this, LockActivity.class);
+                                startActivityForResult(lockactivity, 1);
+                            }
+                        }, 3000);}
+                        lock_clicked = true;
                     }
                 }
             }
+
         });
 
         // if user clicks chicken sprite
         chickenSprite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent pipeactivity = new Intent(MainActivity.this, PipeActivity.class);
-                startActivity(pipeactivity);
-//                Intent winactivity = new Intent(MainActivity.this, WinActivity.class);
-//                startActivity(winactivity);
                 if (chicken_talked && feather_used == false) {
                     // show feather (chicken pulls out his feather)
                     feather.setVisibility(View.VISIBLE);
@@ -287,7 +308,7 @@ public class MainActivity extends AppCompatActivity {
         scroll.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if (getRange(scroll, 420, 540)) {
+                if (getRange(scroll, 280, 455)) {
                     Intent scrollactivity = new Intent(MainActivity.this, ScrollActivity.class);
                     startActivity(scrollactivity);
                 }
@@ -298,7 +319,7 @@ public class MainActivity extends AppCompatActivity {
         switch_bulb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (getRange(switch_bulb, 580, 640)) {{
+                if (getRange(switch_bulb, 400, 460)) {{
                         lightbulbs();
                     }
                 }
@@ -371,7 +392,6 @@ public class MainActivity extends AppCompatActivity {
 
         if (resultCode == RESULT_OK) {
             solved = true;
-            //spriteVisible(fatChickenSprite_2);
             spriteVisible(cage);
             spriteInvisble(fatChickenSprite);
             spriteVisible(fatChickenSprite_2);
@@ -380,7 +400,7 @@ public class MainActivity extends AppCompatActivity {
             fatChickenSprite_2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (getRange(fatChickenSprite_2, 200, 450)) {
+                    if (getRange(fatChickenSprite_2, 100,400)) {
                         fat_chicken_2_visible = true;
                         defaultTextVisibility();
                         textPopUp(fatchicken_text_4);
@@ -389,10 +409,17 @@ public class MainActivity extends AppCompatActivity {
                     snakeSprite.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            if (getRange(snakeSprite, 600, 810)) {
+                            if (getRange(snakeSprite, 420, 600)) {
                                 if (solved) {
-                                    textPopUp(snake_text_2);
-                                    spriteInvisble(fatChickenSprite_2);
+                                    bite_sound.start();
+                                    snakeSprite.postDelayed(new Runnable() {
+                                        public void run() {
+                                            spriteInvisble(fatChickenSprite_2);
+                                            defaultTextVisibility();
+                                            textPopUp(snake_text_2);
+                                        }
+                                    }, 1000);
+
                                     snakeSprite.postDelayed(new Runnable() {
                                         public void run() {
                                             spriteInvisble(snakeSprite);
@@ -402,29 +429,27 @@ public class MainActivity extends AppCompatActivity {
                                 }
                             }
                         }
-
                     });
                 }
             });
                 toilet.setOnClickListener(new View.OnClickListener(){
                     @Override
                     public void onClick (View v){
-                        if (getRange(toilet, 600, 900)){
+                        if (getRange(toilet, 400, 600)){
                         if (toilet_clickable) {
-                            spriteInvisble(chickenSprite);
-                            spriteInvisble(feather);
-                            try {
-                                Thread.sleep(1000);
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
-                            Intent pipeactivity = new Intent(MainActivity.this, PipeActivity.class);
-                            startActivity(pipeactivity);
+                            textPopUp(chicken_text);
+                            toilet.postDelayed(new Runnable() {
+                                public void run() {
+                                    Intent pipeactivity = new Intent(MainActivity.this, PipeActivity.class);
+                                    startActivity(pipeactivity);
+                                }
+                            }, 2000);
                         }
                     }
                 }
             });
         }
+        else {  lock_clicked = false;}
     }
 
     // gets the margin of a sprite
@@ -437,7 +462,6 @@ public class MainActivity extends AppCompatActivity {
     // returns true if sprite is in a certain range
     public boolean getRange (ImageView sprite, int min, int max){
         int left_margin = getLeftMargin(chickenSprite);
-        int margin_sprite = getLeftMargin(sprite);
         if ((left_margin > min) && (left_margin < max)){
             return true;
         }
@@ -456,6 +480,7 @@ public class MainActivity extends AppCompatActivity {
         fatchicken_text_4.setVisibility(View.INVISIBLE);
         snake_text_1.setVisibility(View.INVISIBLE);
         snake_text_2.setVisibility(View.INVISIBLE);
+        chicken_text.setVisibility(View.INVISIBLE);
     }
 
     // makes lightbulbs turn on and off in a certain pattern
@@ -474,7 +499,6 @@ public class MainActivity extends AppCompatActivity {
                 spriteDisRe(bulb_off_3, dis_ap_time);
                 spriteApDis(bulb_on_3, dis_ap_time);
             }
-        }, 2000);
-
+        }, 4000);
     }
 }
