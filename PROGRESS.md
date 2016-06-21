@@ -57,3 +57,9 @@ Ik heb het laatste level toegevoegd, waarin je een brug moet bouwen van buizen i
 
 ###Dag 14
 Ik heb vandaag zitten stuntelen met een memory error die ik maar bleef krijgen, ook al heb ik het geheugengebruik op duizenden manieren proberen te vergroten. Uiteindelijk bleek de emulator het probleem te zijn. Ik kan mijn app niet starten op mijn eigen telefoon om de een of andere reden, maar gelukkig doet ie het prima op de telefoon van de minor programmeren. Mijn spel bleek gewoon te werken. Ik ben nu wel ongeveer klaar om de betaversie in te leveren, ok al is de code nog al een puinhoop. 
+
+###Dag 15
+Ik ben begonnen met het wegwerken van wat bugs die Jaap me bij de presentatie van vrijdag heeft laten zien (zorgen dat de gebruiker in lockactivity niet vijf keer het scherm kan laten openen bijvoorbeeld). Daarnaast heb ik als laatste functionaliteit wat geluiden toegevoegd en een beetje gewerkt aan zorgen dat de layout op elke telefoon werkt door beter gebruik te maken van relative layout. Op mijn eigen telefoon was de layout ietsje anders dan op de minor programmeren telefoon en de emulator. Dit is voor de meeste dingen niet zo'n probleem, maar een van de pijlen was op mijn telefoon opeens gigantisch geworden.
+
+###Dag 16
+Vandaag ben ik wat extra klassen gaan maken om mijn code een beetje op te schonen. Ik ben begonnen met eeen klasse genaamd settings waar ik alle methods in heb geplaatst die ik in meerdere activiteiten gebruik, zodat ik die tenminste uit alle activiteiten kan gooien. 
