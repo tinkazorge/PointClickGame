@@ -63,3 +63,6 @@ Ik ben begonnen met het wegwerken van wat bugs die Jaap me bij de presentatie va
 
 ###Dag 16
 Vandaag ben ik wat extra klassen gaan maken om mijn code een beetje op te schonen. Ik ben begonnen met eeen klasse genaamd settings waar ik alle methods in heb geplaatst die ik in meerdere activiteiten gebruik, zodat ik die tenminste uit alle activiteiten kan gooien. 
+
+###Dag 17
+Ik heb vandaag nog wat bugs gefixed en een mute en unmute button toegevoegd, aangezien blijkt dat als ik mijn telefoon op stil zet de geluiden van het spel nog steeds hoorbaar zijn. 
