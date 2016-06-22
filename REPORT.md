@@ -19,7 +19,7 @@ en zorgt dat ze weer weg gaan op het juiste moment. Ten sotte is er AudioHandler
 heeft gebruikt en alss dit niet het geval is de geluiden afspeelt. 
 Voor een meer uitgebreid overzicht van al mijn klassen en activities, zie onderstaand diagram. 
 
-![alt text] (https://github.com/tinkazorge/PointClickGame/blob/master/doc/DesignFinal%20(4).png "Klassediagram")
+![alt text] (https://github.com/tinkazorge/PointClickGame/blob/master/doc/DesignFinal%20(5).png "Klassediagram")
 
 ### Uitdagingen
 Eén van de dingen die me het meeste tijd heeft gekost is het proberen te implementeren van functionaliteiten die op een veel gemakkelijker manier konden worden gedaan. 
