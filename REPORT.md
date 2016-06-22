@@ -7,7 +7,7 @@ Ten slotte is er een muteknop waarmee de gebruiker de geluiden van het spel kan 
 
 ### Technisch Ontwerp
 Mijn code heeft twee belangrijke Activity's waar andere activity's naartoe leiden of van waaruit ze worden geopend. Dit zijn MainActivity en 
-EscapeActivity. Wanneer het spel opent, wordt de gebruiker eerst naar startActivity geleid. Vanuit hier kan er alleen op "start =" worden geklikt
+EscapeActivity. Wanneer het spel opent, wordt de gebruiker eerst naar startActivity geleid. Vanuit hier kan er alleen op "start" worden geklikt
 waardoor men in MainActivity terecht komt. Vanuit hier kan men naar ScrollActivity en LockActivity, waarna men meteen weer terugkomt in main.
 Uiteindelijk als alle puzzels opgelost zijn, kan de gebruiker naar EscapeActivity via een onClickListener op de toiletsprite. In EscapeActivity
 kan men terug naar MainActivity door op "back" te klikken, aangezien er in MainActivity een code zit die men in EscapeActivity nodig heeft. 
