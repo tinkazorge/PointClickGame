@@ -1,4 +1,4 @@
-package com.example.tinkazorge.pointclickgame;
+package nl.mprog.tinkazorge.mylibrary;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

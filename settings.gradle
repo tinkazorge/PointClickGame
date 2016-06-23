@@ -1,7 +1,1 @@
-include ':app', ':mylibrary', ':AndEngineLibrary'
-include ':andEngine'
-include ':andEnginePhysicsBox2DExtension'
-include 'andengine'
-
-project(':andengine').projectDir = new File(settingsDir, '../Users/tinkabel/Documents/progproject/ProgrammeerProject/doc/andEnginePhysicsBox@DExtension/src/org/andengine')
-include ':andEngineAgain'
+include ':app'

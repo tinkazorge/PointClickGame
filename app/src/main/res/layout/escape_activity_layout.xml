@@ -1,223 +1,248 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?><!--Tinka Zorge PointClickGame-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/pipie2"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@drawable/pipie2"
+    android:screenOrientation="landscape"
     tools:context="com.example.tinkazorge.pointclickgame.PipeActivity">
 
     <ImageView
+        android:id="@+id/river"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:id="@+id/river"
-        android:src="@drawable/river"
         android:layout_marginLeft="190dp"
-        android:layout_marginTop="220dp"/>
+        android:layout_marginTop="220dp"
+        android:src="@drawable/river" />
 
     <ImageView
+        android:id="@+id/doorknob"
         android:layout_width="120dp"
         android:layout_height="50dp"
-        android:id="@+id/doorknob"
-        android:src="@drawable/knob"
-        android:layout_marginRight="40dp"
+        android:layout_marginBottom="80dp"
         android:layout_marginLeft="60dp"
-        android:layout_marginTop="160dp"
-        android:layout_marginBottom="80dp"/>
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="150dp"
+        android:src="@drawable/knob" />
 
     <ImageView
-        android:layout_width="70dp"
+        android:id="@+id/pipe1"
+        android:layout_width="80dp"
         android:layout_height="80dp"
-        android:id="@+id/pipe2"
-        android:src="@drawable/pipe2"
-        android:layout_marginTop="190dp"
-        android:layout_marginLeft="400dp"/>
+        android:layout_marginLeft="140pt"
+        android:layout_marginTop="235dp"
+        android:src="@drawable/pipes5" />
 
     <ImageView
+        android:id="@+id/pipe1_lit"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="140pt"
+        android:layout_marginTop="235dp"
+        android:src="@drawable/pipes5_lit" />
+
+
+    <ImageView
+        android:id="@+id/pipe3"
         android:layout_width="80dp"
         android:layout_height="50dp"
-        android:id="@+id/pipe3"
-        android:layout_marginTop="260dp"
         android:layout_marginLeft="400dp"
-        android:src="@drawable/pipe3"/>
+        android:layout_marginTop="260dp"
+        android:src="@drawable/pipe3" />
 
     <ImageView
+        android:id="@+id/pipe3_lit"
+        android:layout_width="87dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="396dp"
+        android:layout_marginTop="260dp"
+        android:src="@drawable/pipe3_lit" />
+
+    <ImageView
+        android:id="@+id/pipe4"
         android:layout_width="20dp"
         android:layout_height="50dp"
-        android:id="@+id/pipe4"
-        android:src="@drawable/pipes6"
-        android:layout_marginTop= "70dp"
-        android:layout_marginLeft="500dp"/>
+        android:layout_marginLeft="500dp"
+        android:layout_marginTop="120dp"
+        android:src="@drawable/pipes6" />
 
     <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:id="@+id/pipe1"
-        android:src="@drawable/pipes5"
-        android:layout_marginLeft="140pt"
-        android:layout_marginTop="235dp"/>
-
-    <ImageView
+        android:id="@+id/bridgepipe1"
         android:layout_width="55dp"
         android:layout_height="50dp"
-        android:id="@+id/bridgepipe1"
-        android:src="@drawable/pipes5"
         android:layout_marginLeft="110pt"
-        android:layout_marginTop="192dp"/>
+        android:layout_marginTop="192dp"
+        android:src="@drawable/pipes5" />
 
     <ImageView
+        android:id="@+id/bridgepipe2"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:id="@+id/bridgepipe2"
-        android:src="@drawable/bridgepipe2"
+        android:layout_marginLeft="300dp"
         android:layout_marginTop="190dp"
-        android:layout_marginLeft="300dp"/>
+        android:src="@drawable/bridgepipe2" />
 
     <ImageView
+        android:id="@+id/bridgepipe3"
         android:layout_width="50dp"
         android:layout_height="20dp"
-        android:id="@+id/bridgepipe3"
+        android:layout_marginLeft="220dp"
         android:layout_marginTop="208dp"
-        android:layout_marginLeft="205dp"
-        android:src="@drawable/bridgepipe3"/>
+        android:src="@drawable/bridgepipe3" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/chicken1"
-        android:src="@drawable/chicken7"
-        android:layout_marginTop="170dp"
-        android:layout_marginLeft="350dp" />
-
-    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/chicken2"
-        android:src="@drawable/chicken5"
-        android:layout_marginTop="180dp"
-        android:layout_marginLeft="350dp"/>
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/chicken3"
-        android:src="@drawable/chicken6"
-        android:layout_marginTop="180dp"
-        android:layout_marginLeft="360dp"/>
-
-        <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/chicken4"
-        android:src="@drawable/chicken1"
         android:layout_marginLeft="350dp"
-        android:layout_marginTop="170dp"/>
+        android:layout_marginTop="170dp"
+        android:src="@drawable/chicken7" />
+
+    <ImageView
+        android:id="@+id/chicken2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="350dp"
+        android:layout_marginTop="180dp"
+        android:src="@drawable/chicken5" />
+
+    <ImageView
+        android:id="@+id/chicken3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="360dp"
+        android:layout_marginTop="180dp"
+        android:src="@drawable/chicken6" />
+
+    <ImageView
+        android:id="@+id/chicken4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="350dp"
+        android:layout_marginTop="170dp"
+        android:src="@drawable/chicken1" />
+
+    <ImageView
+        android:id="@+id/pipe2"
+        android:layout_width="70dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="400dp"
+        android:layout_marginTop="190dp"
+        android:src="@drawable/pipe2" />
+
+    <ImageView
+        android:id="@+id/pipe2_lit"
+        android:layout_width="70dp"
+        android:layout_height="130dp"
+        android:layout_marginLeft="400dp"
+        android:layout_marginTop="165dp"
+        android:src="@drawable/pipe2_lit" />
 
     <TextView
+        android:id="@+id/pipe_text_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="This is my way out! I need to find a way to cross!"
-        android:id="@+id/pipe_text_1"
-        android:textColor="#FFFFFF"
-        android:textSize="8pt"
         android:layout_alignParentBottom="true"
         android:layout_toLeftOf="@+id/arrowleft"
-        android:layout_toStartOf="@+id/arrowleft" />
+        android:layout_toStartOf="@+id/arrowleft"
+        android:text="This is my way out! I need to find a way to cross!"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#FFFFFF"
+        android:textSize="8pt" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="That doesn't seem to work!"
         android:id="@+id/pipe_text_2"
-        android:textColor="#FFFFFF"
-        android:textSize="8pt"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"/>
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="That doesn't seem to work!"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="That seems like a good start!"
+        android:textColor="#FFFFFF"
+        android:textSize="8pt" />
+
+    <TextView
         android:id="@+id/pipe_text_3"
-        android:textColor="#FFFFFF"
-        android:textSize="8pt"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"/>
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="That seems like a good start!"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="That's a good place for that one!"
-        android:id="@+id/pipe_text_4"
         android:textColor="#FFFFFF"
-        android:textSize="8pt"
+        android:textSize="8pt" />
+
+    <TextView
+        android:id="@+id/pipe_text_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/bridgepipe1"
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/bridgepipe1"
-        android:layout_alignEnd="@+id/bridgepipe1" />
+        android:text="That's a good place for that one!"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#FFFFFF"
+        android:textSize="8pt" />
 
     <TextView
+        android:id="@+id/pipe_text_5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="That's it! We have a bridge!"
-        android:id="@+id/pipe_text_5"
-        android:textColor="#FFFFFF"
-        android:textSize="8pt"
+        android:layout_alignEnd="@+id/river"
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/river"
-        android:layout_alignEnd="@+id/river" />
+        android:text="That's it! We have a bridge!"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#FFFFFF"
+        android:textSize="8pt" />
 
     <Button
+        android:id="@+id/back_button"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
-        android:text="back"
-        android:id="@+id/back_button"
+        android:layout_alignRight="@id/arrowright"
         android:layout_marginTop="260dp"
-        android:layout_alignRight="@id/arrowright"/>
+        android:text="back" />
 
     <ImageView
+        android:id="@+id/arrowleft"
         android:layout_width="55dp"
         android:layout_height="100dp"
-        android:id="@+id/arrowleft"
-        android:src="@drawable/arrowleft"
-        android:clickable="true"
-        android:layout_marginRight="70dp"
+        android:layout_alignEnd="@+id/arrowright"
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/arrowright"
-        android:layout_alignEnd="@+id/arrowright"
-        android:layout_marginBottom="209dp" />
+        android:layout_marginBottom="209dp"
+        android:layout_marginRight="70dp"
+        android:clickable="true"
+        android:src="@drawable/arrowleft" />
 
     <ImageView
+        android:id="@+id/arrowright"
         android:layout_width="55dp"
         android:layout_height="100dp"
-        android:src="@drawable/arrowright3"
-        android:clickable="true"
-        android:id="@+id/arrowright"
         android:layout_alignBottom="@+id/arrowleft"
-        android:layout_marginLeft="500dp" />
+        android:layout_marginLeft="500dp"
+        android:clickable="true"
+        android:src="@drawable/arrowright3" />
 
     <ImageView
-        android:layout_width="40dp"
-        android:layout_height="50dp"
         android:id="@+id/mute"
-        android:src="@drawable/mute"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="0dp"
-        />
-    <ImageView
         android:layout_width="40dp"
         android:layout_height="50dp"
-        android:id="@+id/unmute"
-        android:src="@drawable/unmute"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="0dp"
-        />
+        android:src="@drawable/mute" />
+
+    <ImageView
+        android:id="@+id/unmute"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="0dp"
+        android:src="@drawable/unmute" />
 
 </RelativeLayout>

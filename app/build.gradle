@@ -5,7 +5,7 @@ android {
     buildToolsVersion '21.1.1'
 
     defaultConfig {
-        applicationId "com.example.tinkazorge.pointclickgame"
+        applicationId "nl.mprog.tinkazorge.pointclickgame"
         minSdkVersion 9
         targetSdkVersion 23
         versionCode 1

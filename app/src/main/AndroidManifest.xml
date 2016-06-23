@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.tinkazorge.pointclickgame">
+    package="nl.mprog.tinkazorge.pointclickgame">
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -42,15 +42,9 @@
         </activity>
         <activity android:name=".LockActivity" />
 
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-
         <activity android:name=".WinActivity" />
         <activity android:name=".ScrollActivity" />
-        <activity android:name=".EscapeActivity"></activity>
+        <activity android:name=".EscapeActivity"/>
     </application>
 
 </manifest>

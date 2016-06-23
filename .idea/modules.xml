@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AndEngineLibrary/AndEngineLibrary.iml" filepath="$PROJECT_DIR$/AndEngineLibrary/AndEngineLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/PointClickGame.iml" filepath="$PROJECT_DIR$/PointClickGame.iml" />
-      <module fileurl="file://$PROJECT_DIR$/andEngine/andEngine.iml" filepath="$PROJECT_DIR$/andEngine/andEngine.iml" />
-      <module fileurl="file://$PROJECT_DIR$/andEngineAgain/andEngineAgain.iml" filepath="$PROJECT_DIR$/andEngineAgain/andEngineAgain.iml" />
-      <module fileurl="file://$PROJECT_DIR$/andEnginePhysicsBox2DExtension/andEnginePhysicsBox2DExtension.iml" filepath="$PROJECT_DIR$/andEnginePhysicsBox2DExtension/andEnginePhysicsBox2DExtension.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../Users/tinkabel/Documents/progproject/ProgrammeerProject/doc/andEnginePhysicsBox@DExtension/src/org/andengine/andengine.iml" filepath="$PROJECT_DIR$/../Users/tinkabel/Documents/progproject/ProgrammeerProject/doc/andEnginePhysicsBox@DExtension/src/org/andengine/andengine.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mylibrary/mylibrary.iml" filepath="$PROJECT_DIR$/mylibrary/mylibrary.iml" />
     </modules>
   </component>
 </project>

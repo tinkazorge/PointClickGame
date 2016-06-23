@@ -10,13 +10,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/AndEngineLibrary" />
-            <option value="$PROJECT_DIR$/andEngine" />
-            <option value="$PROJECT_DIR$/andEngineAgain" />
-            <option value="$PROJECT_DIR$/andEnginePhysicsBox2DExtension" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/mylibrary" />
-            <option value="$PROJECT_DIR$/../Users/tinkabel/Documents/progproject/ProgrammeerProject/doc/andEnginePhysicsBox@DExtension/src/org/andengine" />
           </set>
         </option>
       </GradleProjectSettings>

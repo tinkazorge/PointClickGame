@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?><!--Tinka Zorge PointClickGame-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rootRL"
@@ -8,14 +8,14 @@
     android:clickable="true"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:screenOrientation="portrait"
+    android:screenOrientation="landscape"
     android:weightSum="1"
-    tools:context="com.example.tinkazorge.pointclickgame.MainActivity">
+    tools:context="nl.mprog.tinkazorge.pointclickgame.MainActivity">
 
     <ImageView
         android:id="@+id/toilet"
@@ -43,8 +43,8 @@
         android:layout_height="70dp"
         android:layout_alignLeft="@+id/toilet"
         android:layout_alignStart="@+id/toilet"
-        android:layout_marginTop="155dp"
         android:layout_marginLeft="48dp"
+        android:layout_marginTop="155dp"
         android:src="@drawable/snake2" />
 
     <ImageView
@@ -89,9 +89,9 @@
         android:id="@+id/fat_chicken_lit"
         android:layout_width="110dp"
         android:layout_height="150dp"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="129dp"
-        android:src="@drawable/kip_lit"/>
+        android:layout_marginLeft="145dp"
+        android:layout_marginTop="126dp"
+        android:src="@drawable/kip_lit" />
 
     <ImageView
         android:id="@+id/fat_chicken"
@@ -122,8 +122,8 @@
         android:id="@+id/chicken_2"
         android:layout_width="20pt"
         android:layout_height="100dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="210dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="225dp"
         android:src="@drawable/chicken5" />
 
     <ImageView
@@ -132,15 +132,23 @@
         android:layout_height="100dp"
         android:layout_gravity="bottom"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="210dp"
+        android:layout_marginTop="220dp"
         android:src="@drawable/chicken6" />
 
     <ImageView
         android:id="@+id/chicken_1"
-        android:layout_width="30pt"
-        android:layout_height="100dp"
-        android:layout_marginTop="200dp"
-        android:src="@drawable/chicken1" />
+        android:layout_width="16pt"
+        android:layout_height="45dp"
+        android:layout_marginTop="240dp"
+        android:src="@drawable/chicken1_2" />
+
+    <ImageView
+        android:id="@+id/chicken_4"
+        android:layout_width="40dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="245dp"
+        android:src="@drawable/chicken8" />
 
     <ImageView
         android:id="@+id/feather_1"
@@ -149,8 +157,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_gravity="bottom"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="240dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="245dp"
         android:src="@drawable/feather" />
     />
 

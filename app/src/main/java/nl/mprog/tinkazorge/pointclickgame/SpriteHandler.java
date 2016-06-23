@@ -1,15 +1,13 @@
-package com.example.tinkazorge.pointclickgame;
+// Tinka Zorge PointClickGame
+package nl.mprog.tinkazorge.pointclickgame;
 
-import android.media.MediaPlayer;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 /**
- * Created by tinkabel on 20-6-2016.
+ * This class handles the functions that are related to the sprites in the Activities..
  */
 public class SpriteHandler {
 
@@ -43,7 +41,8 @@ public class SpriteHandler {
             }
         }, time_disre);
     }
-    // make sprite appear, then disappear again
+
+    // makes sprite appear, then disappear again
     static public void spriteApDis (final ImageView sprite_apdis, int time_apdis) {
         spriteVisible(sprite_apdis);
         sprite_apdis.postDelayed(new Runnable() {
@@ -59,6 +58,7 @@ public class SpriteHandler {
         sprite_margin.setLayoutParams(params);
         return params.leftMargin;
     }
+
     // returns true if sprite is in a certain range
     public static boolean getRange (ImageView walking_sprite, int min, int max) {
         int left_margin = getLeftMargin(walking_sprite);

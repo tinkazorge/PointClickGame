@@ -1,95 +1,96 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?><!--Tinka Zorge PointClickGame-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/bars"
-    tools:context="com.example.tinkazorge.pointclickgame.LockActivity">
+    android:orientation="horizontal"
+    android:screenOrientation="landscape"
+    tools:context="nl.mprog.tinkazorge.pointclickgame.LockActivity">
 
     <ImageView
+        android:id="@+id/post_it"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/post_it"
-        android:src="@drawable/post_it2"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_marginLeft="46dp"
-        android:layout_marginStart="46dp" />
+        android:layout_marginStart="46dp"
+        android:src="@drawable/post_it2" />
 
     <TextView
+        android:id="@+id/explain_text"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:textSize="18dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="376dp"
+        android:layout_marginTop="60dp"
         android:text="Seems I've smudged one of the numbers! What could it be?"
-        android:id="@+id/explain_text"
         android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="60dp"
-        android:layout_marginLeft="376dp"/>
+        android:textSize="18dp"
+        android:textStyle="bold" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:text="That's it! Thanks mate! Wait a sec, I'll open this thing..."
         android:id="@+id/win_text"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="60dp"
-        android:layout_marginLeft="400dp"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"/>
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:text="Yeah no, that doesn't work at all!"
-        android:id="@+id/lose_text"
         android:layout_alignParentTop="true"
+        android:layout_marginLeft="400dp"
         android:layout_marginTop="60dp"
-        android:layout_marginLeft="405dp"
+        android:text="That's it! Thanks mate! Wait a sec, I'll open this thing..."
         android:textColor="#FFFFFF"
-        android:textStyle="bold"/>
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/lose_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="405dp"
+        android:layout_marginTop="60dp"
+        android:text="Yeah no, that doesn't work at all!"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
     <Button
+        android:id="@+id/go_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Go!"
-        android:id="@+id/go_button"
         android:layout_alignBottom="@+id/imageView5"
-        android:layout_marginLeft="255dp" />
+        android:layout_marginLeft="255dp"
+        android:text="Go!" />
 
     <ImageView
         android:id="@+id/imageView5"
-        android:src="@drawable/tekstballon4"
         android:layout_width="500dp"
         android:layout_height="100pt"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="360dp"/>
+        android:layout_marginLeft="360dp"
+        android:src="@drawable/tekstballon4" />
 
     <EditText
+        android:id="@+id/code_text"
         android:layout_width="140dp"
         android:layout_height="wrap_content"
-        android:id="@+id/code_text"
         android:layout_alignBottom="@+id/imageView5"
-        android:layout_alignRight="@+id/go_button"
         android:layout_alignEnd="@+id/go_button"
+        android:layout_alignRight="@+id/go_button"
+        android:layout_marginEnd="86dp"
         android:layout_marginRight="86dp"
-        android:textColor="#000000"
         android:maxLength="2"
         android:singleLine="true"
-        android:layout_marginEnd="86dp"/>
+        android:textColor="#000000" />
 
     <Button
+        android:id="@+id/back_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="back"
-        android:id="@+id/back_button"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:text="back" />
     />
 </RelativeLayout>

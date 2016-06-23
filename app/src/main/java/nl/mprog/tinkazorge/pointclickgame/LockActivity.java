@@ -1,20 +1,14 @@
-package com.example.tinkazorge.pointclickgame;
+// Tinka Zorge PointClickGame
+package nl.mprog.tinkazorge.pointclickgame;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
-import android.graphics.Rect;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -57,45 +51,10 @@ public class LockActivity extends AppCompatActivity {
         go_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // get user input
-                String code = code_text.getText().toString();
-
-                // if the user puts 87 for an answer
-                if (code.contains("87")) {
-                    // show win_text
-                    TextHandler.textInvisible(explain_text);
-                    TextHandler.textVisible(win_text);
-                    TextHandler.textInvisible(code_text);
-
-                    // hide go and back button
-                    go_button.setVisibility(View.INVISIBLE);
-                    back_button.setVisibility(View.INVISIBLE);
-                    // play lock_sound
-                    AudioHandler.checkMute(lock_sound, mute_clicked);
-                    // wait a second so win_text can be read
-                    win_text.postDelayed(new Runnable() {
-                        public void run() {
-                            // define intent
-                            Intent mainactivityFromLock = new Intent(LockActivity.this, MainActivity.class);
-                            // set result for setAcivityForResult
-                            setResult(LockActivity.RESULT_OK, mainactivityFromLock);
-                            // go back to main
-                            finish();
-                        }
-                    }, 2000);
-
-                } else {
-                    // show lose_text and then explain_text again
-                    TextHandler.textInvisible(explain_text);
-                    TextHandler.textPopUp(lose_text, 3000);
-                    explain_text.postDelayed(new Runnable() {
-                        public void run() {
-                            TextHandler.textVisible(explain_text);
-                        }
-                    }, 3100);
-                }
+                goButtonClicked(mute_clicked);
             }
         });
+
         // if backbutton is pressed, go back to main
         back_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,10 +64,59 @@ public class LockActivity extends AppCompatActivity {
         });
     }
 
-    // deefault visibility of certain text
+    // default visibility of certain text
     public void defaultTextVisibility(){
         TextHandler.textInvisible(win_text);
         TextHandler.textInvisible(lose_text);
+    }
+
+    // checks answer when gobutton is clicked and sends a resultCode to main
+    public void goButtonClicked(boolean mute){
+
+        // get user input
+        String code = code_text.getText().toString();
+
+        // if the user puts 87 for an answer
+        if (code.contains("87")) {
+
+            // show win_text
+            TextHandler.textInvisible(explain_text);
+            TextHandler.textVisible(win_text);
+            TextHandler.textInvisible(code_text);
+
+            // hide go and back button
+            go_button.setVisibility(View.INVISIBLE);
+            back_button.setVisibility(View.INVISIBLE);
+
+            // play lock_sound
+            AudioHandler.checkMute(lock_sound, mute);
+
+            // wait a second so win_text can be read
+            win_text.postDelayed(new Runnable() {
+                public void run() {
+
+                    // define intent
+                    Intent mainactivityFromLock = new Intent(LockActivity.this, MainActivity.class);
+
+                    // set result for setAcivityForResult
+                    setResult(LockActivity.RESULT_OK, mainactivityFromLock);
+
+                    // go back to main
+                    finish();
+                }
+            }, 2000);
+
+        } else {
+
+            // show lose_text and then explain_text again
+            TextHandler.textInvisible(explain_text);
+            TextHandler.textPopUp(lose_text, 3000);
+            explain_text.postDelayed(new Runnable() {
+                public void run() {
+                    TextHandler.textVisible(explain_text);
+                }
+            }, 3100);
+        }
     }
 }
 

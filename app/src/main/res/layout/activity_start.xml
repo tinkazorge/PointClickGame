@@ -1,61 +1,61 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?><!--Tinka Zorge PointClickGame-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rootSL"
-    android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/background2"
+    android:orientation="horizontal"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:screenOrientation="landscape"
-    tools:context="com.example.tinkazorge.pointclickgame.MainActivity"
-    android:weightSum="1"
     android:touchscreenBlocksFocus="false"
-    android:transitionGroup="false">
+    android:transitionGroup="false"
+    android:weightSum="1"
+    tools:context="nl.mprog.tinkazorge.pointclickgame.MainActivity">
 
 
     <Button
+        android:id="@+id/startbutton"
         android:layout_width="100pt"
         android:layout_height="wrap_content"
-        android:text="Start"
-        android:textSize="20pt"
-        android:id="@+id/startbutton"
-        android:layout_centerVertical="true"
+        android:layout_alignTop="@id/chicken_1"
         android:layout_centerHorizontal="true"
-        android:layout_alignTop="@id/chicken_1"/>
+        android:layout_centerVertical="true"
+        android:text="Start"
+        android:textSize="20pt" />
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="120pt"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Tap to help the chicken escape from chicken battery planet!"
-        android:id="@+id/textView"
-        android:textColor="#FFFFFF"
-        android:textSize="10pt"
-        android:layout_below="@+id/startbutton"
         android:layout_alignLeft="@+id/startbutton"
-        android:layout_alignStart="@+id/startbutton" />
+        android:layout_alignStart="@+id/startbutton"
+        android:layout_below="@+id/startbutton"
+        android:text="Tap to help the chicken escape from chicken battery planet!"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FFFFFF"
+        android:textSize="10pt" />
 
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="80pt"
         android:layout_height="50pt"
-        android:id="@+id/imageView"
-        android:src="@drawable/chicken1"
-        android:layout_marginTop="1dp"
-        android:layout_alignParentTop="@+id/startbutton"
         android:layout_alignLeft="@+id/textView"
-        android:layout_alignStart="@+id/textView" />
+        android:layout_alignParentTop="@+id/startbutton"
+        android:layout_alignStart="@+id/textView"
+        android:layout_marginTop="1dp"
+        android:src="@drawable/chicken1" />
 
     <ImageView
+        android:id="@+id/imageView3"
         android:layout_width="80pt"
         android:layout_height="35pt"
-        android:id="@+id/imageView3"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/imageView"
         android:layout_toEndOf="@+id/imageView"
+        android:layout_toRightOf="@+id/imageView"
         android:src="@drawable/chicken5" />
 
 </RelativeLayout>
