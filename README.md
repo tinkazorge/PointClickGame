@@ -47,4 +47,26 @@ Status API Training Shop Blog About
 
 © 2016 GitHub, Inc. Terms Privacy Security Contact Help
 
+### Sources
+
+Bronnen
+http://www.istockphoto.com/vector/fat-chicken-gm165722148-11967795 (fatchicken)
+http://www.moddb.com/mods/savage-defiance/images/prison-background-map (background main)
+http://www.robertdayton.com/blog/ (background lock)
+http://www.123rf.com/photo_7606230_vector-collection-of-detailed-construction-pieces-pipes-fittings-gate-valve-faucet-ells.html (pipes)
+http://www.wpclipart.com/household/water/pipes.png.html (pipes)
+https://www.dreamstime.com/photos-images/glowing-light-bulb-icon-off.html (lightbulbs)
+http://www.keyword-suggestions.com/Y2FnZQ/ (cage)
+http://www.clipartpanda.com/categories/breakfast-eggs-clipart (eggs)
+http://clipartix.com/feather-clip-art-image-17896/ (feather)
+http://www.clipartpanda.com/categories/river-clip-art-free (background win)
+http://www.123rf.com/photo_24799967_cartoon-door-knob.html (doorknob)
+http://www.gamekult.com/actu/project-igi-2-le-retour-A13849.html (background escape)
+http://www.clipartpanda.com/categories/post-it-notes-clipart (postit)
+https://thetomatos.com/free-clipart-7118/ (toilet)
+http://www.canstockphoto.com/illustration/light-switch.html (lightswitch)
+https://www.iconfinder.com/icons/265520/control_muted_volume_icon (mute)
+https://pixabay.com/nl/muur-achtergrond-grijs-grunge-oude-872826/ (background scroll)
+http://www.clipartbest.com/text-bubble-vector (textbubble)
+https://www.youtube.com/channel/UCorjSQFi9kzNrHtUBvDMyQA (All sounds)
 
