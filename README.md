@@ -34,6 +34,7 @@ Het personage is te besturen met pijltjestoetsen op het scherm, en de meeste ite
 
 ##LICENSE
 
+This code is licensed under The Unlisenced. For more information, please refer to <http://unlicense.org> 
 
 ## SOURCES
 
