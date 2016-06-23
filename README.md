@@ -1,4 +1,5 @@
 ### Chicken Battery Planet
+## Tinka Zorge
 
 Deze app is een point en click puzzlegame met als doel entertainment. Er zijn twee levels waarin je puzzels moet maken om de hoofdpersoon, het kuiken, te bevrijden uit chicken battery planet. De launchActivity is een startscherm.
 
@@ -47,7 +48,7 @@ Status API Training Shop Blog About
 
 © 2016 GitHub, Inc. Terms Privacy Security Contact Help
 
-### Sources
+### SOURCES
 
 http://www.istockphoto.com/vector/fat-chicken-gm165722148-11967795 (fatchicken)
 
