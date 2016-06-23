@@ -4,7 +4,7 @@ volgorde items aan te klikken en puzzels op te lossen. Bij mijn spel is dit doel
 uit de legbatterij. Hiervoor moet de gebruiker praten met een andere kip en een slang, en op bepaalde items klikken voor hints. Bij het klikken op bepaalde
 voorwerpen (de kip op een bepaald moment en het stuk papier) opent zich een nieuw scherm met een hint of een puzzel. 
 Ten slotte is er een muteknop waarmee de gebruiker de geluiden van het spel kan uitzetten. 
-! [alt text] (https://github.com/tinkazorge/PointClickGame/blob/master/doc/Screenshot_2016-06-23-10-19-28.png "Screenshot")
+![alt text] (https://github.com/tinkazorge/PointClickGame/blob/master/doc/Screenshot_2016-06-23-10-19-28.png "Screenshot")
 
 ### Technisch Ontwerp
 Mijn code heeft twee belangrijke Activity's waar andere activity's naartoe leiden of van waaruit ze worden geopend. Dit zijn MainActivity en 
