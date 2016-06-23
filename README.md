@@ -1,4 +1,4 @@
-## Chicken Battery Planet
+### Chicken Battery Planet
 
 Deze app is een point en click puzzlegame met als doel entertainment. Er zijn twee levels waarin je puzzels moet maken om de hoofdpersoon, het kuiken, te bevrijden uit chicken battery planet. De launchActivity is een startscherm.
 
@@ -31,7 +31,8 @@ Als dit gelukt is, hoeft de gebruiker alleen nog op de deurknop te klikken om te
 
 Het personage is te besturen met pijltjestoetsen op het scherm, en de meeste items werken alleen als je erbij in de buurt komt door een ingstelde range. Om de geluiden uit te zetten is er een mutebutton aanwezig. 
 
-LICENSE
+###LICENSE
+
 This is free and unencumbered software released into the public domain.
 
 Anyone is free to copy, modify, publish, use, compile, sell, or distribute this software, either in source code form or as a compiled binary, for any purpose, commercial or non-commercial, and by any means.
