@@ -1,47 +1,40 @@
-package com.example.tinkazorge.pointclickgame;
+// Tinka Zorge PointClickGame
+package nl.mprog.tinkazorge.pointclickgame;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.media.MediaPlayer;
-import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-
-import javax.xml.datatype.Duration;
-
 public class MainActivity extends AppCompatActivity {
+
+    // initialize variables and widgets
     int dis_ap_time = 300;
     int textpop_time = 4000;
     int count_flush = 0;
     int max_right = 900;
     int max_left = 4;
-    int count_mute = 0;
     boolean feather_visible = false;
     boolean eggs_clicked = false;
     boolean chicken_talked = false;
     boolean snake_ate_eggs = false;
-    boolean fatchicken_2_visible = false;
     boolean solved = false;
-    boolean fat_chicken_2_visible = false;
     boolean toilet_clickable;
     boolean feather_used = false;
     boolean lock_clicked = false;
     boolean mute_clicked = false;
 
-    // define widgets
+    // find widgets
     ImageView flusher;
     ImageView snakeSprite;
     ImageView chickenSprite;
     ImageView chickenSprite_2;
     ImageView chickenSprite_3;
+    ImageView chickenSprite_4;
     ImageView leftArrow;
     ImageView rightArrow;
     ImageView fatChickenSprite;
@@ -79,16 +72,19 @@ public class MainActivity extends AppCompatActivity {
     MediaPlayer splash_sound;
     MediaPlayer flush_sound;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // set orientation to landscape
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.activity_main);
-        Log.d("hoi", "mute" + mute_clicked);
+
         // find widgets
         chickenSprite = (ImageView) findViewById(R.id.chicken_1);
+        chickenSprite_2 = (ImageView) findViewById(R.id.chicken_2);
+        chickenSprite_3 = (ImageView) findViewById(R.id.chicken_3);
+        chickenSprite_4 = (ImageView) findViewById(R.id.chicken_4);
         fatChickenSprite = (ImageView) findViewById(R.id.fat_chicken);
         fatChickenSprite_2 = (ImageView) findViewById(R.id.fat_chicken_2);
         fatChickenSprite_lit = (ImageView) findViewById(R.id.fat_chicken_lit);
@@ -132,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
 
         // make certain widgets invisible
         defaultSpriteVisibility();
+
         // make all texts invisible
         defaultTextVisibility();
 
@@ -139,8 +136,13 @@ public class MainActivity extends AppCompatActivity {
         rightArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                // get spritemargin
                 int left_margin = SpriteHandler.getLeftMargin(chickenSprite);
+
+                // if sprite has not hit the wall
                 if (left_margin < max_right) {
+
                     // call animation to make chicken walk
                     walkAnimationRight();
                 }
@@ -151,8 +153,13 @@ public class MainActivity extends AppCompatActivity {
         leftArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                // get margin
                 int left_margin = SpriteHandler.getLeftMargin(chickenSprite);
+
+                // if sprite has not hit the wall
                 if (left_margin > max_left) {
+
                     // call animation to make chicken walk
                     walkAnimationLeft();
                 }
@@ -163,11 +170,13 @@ public class MainActivity extends AppCompatActivity {
         flusher.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // if chicken is in the right range
-                if (SpriteHandler.getRange(chickenSprite, 420, 750)) {
-                    // call flusherClicked
-                    flusherClicked();
-                }
+
+            // if chicken is in the right range
+            if (SpriteHandler.getRange(chickenSprite, 420, 750)) {
+
+                // call flusherClicked
+                flusherClicked();
+            }
             }
         });
 
@@ -175,7 +184,9 @@ public class MainActivity extends AppCompatActivity {
         snakeSprite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                snakeClicked();
+
+            // call method snakeClicked
+            snakeClicked();
             }
         });
 
@@ -183,7 +194,9 @@ public class MainActivity extends AppCompatActivity {
         fatChickenSprite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fatchickenClicked();
+
+            // call method fatchickenClicked
+            fatchickenClicked();
             }
 
         });
@@ -192,51 +205,78 @@ public class MainActivity extends AppCompatActivity {
         chickenSprite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                chickenClicked();
+
+            // call method chickenClicked
+            chickenClicked();
             }
         });
 
-        // if user clicks scroll
+        // if user clicks chicken sprite4
+        chickenSprite_4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            // call method chickenClicked
+            chickenClicked();
+            }
+        });
+
+        // if scroll is clicked
         scroll.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+
+                // call method scrollClicked
                 scrollClicked();
             }
         });
 
-        // if user clicks switch
+        // if eggs are clicked
         eggs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (SpriteHandler.getRange(chickenSprite, 200, 500)) {{
-                        eggs_clicked = true;
-                        SpriteHandler.spriteInvisble(eggs);
-                        SpriteHandler.spriteVisible(eggs_lit);
-                    }
+
+                // if they're close enough
+                if (SpriteHandler.getRange(chickenSprite, 200, 500)){
+
+                    // select eggs
+                    eggs_clicked = true;
+                    SpriteHandler.spriteInvisble(eggs);
+                    SpriteHandler.spriteVisible(eggs_lit);
                 }
             }
         });
 
+        // if switch is clicked
         switch_bulb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (SpriteHandler.getRange(chickenSprite, 300, 520)) {{
+
+                // if they're close enough
+                if (SpriteHandler.getRange(chickenSprite, 300, 590)) {
+
+                    // call method lightBulbs
                     lightBulbs();
                 }
             }
-            }
         });
+
         // if mute is clicked
         mute.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                // call method muteClicked
                 muteClicked();
             }
         });
 
+        // if unmute is clicked
         unmute.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                // call method unmuteClicked
                 unmuteClicked();
             }
         });
@@ -246,67 +286,120 @@ public class MainActivity extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
 
+        // if the user types the right answer
         if (resultCode == RESULT_OK) {
-            solved = true;
+
+            // make fatchicken come out of his cage
             SpriteHandler.spriteVisible(cage);
             SpriteHandler.spriteInvisble(fatChickenSprite);
             SpriteHandler.spriteVisible(fatChickenSprite_2);
 
-            // if user clicks fat chicken sprite 2
+            // if user clicks on the now free fatchicken
             fatChickenSprite_2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    AudioHandler.checkMute(chicken_sound, mute_clicked);
-                    if (SpriteHandler.getRange(chickenSprite, 100, 400)) {
-                        fat_chicken_2_visible = true;
-                        SpriteHandler.spriteInvisble(fatChickenSprite_2);
-                        SpriteHandler.spriteVisible(fatChickenSprite_lit);
-                        defaultTextVisibility();
-                        TextHandler.textPopUp(fatchicken_text_4, textpop_time);
-                    }
 
-                    snakeSprite.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            if (SpriteHandler.getRange(chickenSprite, 420, 600)) {
-                                if (solved) {
-                                    AudioHandler.checkMute(bite_sound, mute_clicked);
-                                    snakeSprite.postDelayed(new Runnable() {
-                                        public void run() {
-                                            SpriteHandler.spriteInvisble(fatChickenSprite_lit);
-                                            defaultTextVisibility();
-                                            TextHandler.textPopUp(snake_text_2, textpop_time);
-                                        }
-                                    }, 1000);
-                                    snakeSprite.postDelayed(new Runnable() {
-                                        public void run() {
-                                            AudioHandler.checkMute(splash_sound, mute_clicked);
-                                            SpriteHandler.spriteInvisble(snakeSprite);
-                                        }
-                                    }, 3000);
-                                    toilet_clickable = true;
-                                }
+                // if user is close enough
+                if (SpriteHandler.getRange(chickenSprite, 100, 400)) {
+
+                    // make his chickensound
+                    AudioHandler.checkMute(chicken_sound, mute_clicked);
+
+                    // select fatchickensprite
+                    SpriteHandler.spriteInvisble(fatChickenSprite_2);
+                    SpriteHandler.spriteVisible(fatChickenSprite_lit);
+
+                    // show his new text
+                    defaultTextVisibility();
+                    TextHandler.textPopUp(fatchicken_text_4, textpop_time);
+                }
+
+                // if snake is clicked after fatchicken has been selected
+                snakeSprite.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                    // if user is close enough
+                    if (SpriteHandler.getRange(chickenSprite, 400, 700)) {
+
+                        // make snakes bitesound
+                        AudioHandler.checkMute(bite_sound, mute_clicked);
+
+                        // after a bit (sound is a little delayed)
+                        snakeSprite.postDelayed(new Runnable() {
+                            public void run() {
+
+                            // make selected fatchicken disappear
+                            SpriteHandler.spriteInvisble(fatChickenSprite_lit);
+
+                            // show snakes new text
+                            defaultTextVisibility();
+                            TextHandler.textPopUp(snake_text_2, textpop_time);
                             }
-                        }
-                    });
+                        }, 1000);
+
+                        // after a bit more time
+                        snakeSprite.postDelayed(new Runnable() {
+                            public void run() {
+
+                            // make splash sound
+                            AudioHandler.checkMute(splash_sound, mute_clicked);
+
+                            // make snake disappear
+                            SpriteHandler.spriteInvisble(snakeSprite);
+                            }
+                        }, 3000);
+
+                        // toilet can now be clicked
+                        toilet_clickable = true;
+                    }
+                    }
+                });
                 }
             });
-                toilet.setOnClickListener(new View.OnClickListener(){
-                    @Override
-                    public void onClick (View v){
-                        if (SpriteHandler.getRange(chickenSprite, 400, 600)){
+
+            // if toilet is clicked
+            toilet.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    // if user is close enough
+                    if (SpriteHandler.getRange(chickenSprite, 400, 900)) {
+
+                        // check if clickable
                         if (toilet_clickable) {
+
+                            // show chickentext
+                            defaultTextVisibility();
                             TextHandler.textPopUp(chicken_text, textpop_time);
+
+                            // after a second
                             toilet.postDelayed(new Runnable() {
                                 public void run() {
+
+                                    // make chicken disappear
                                     SpriteHandler.spriteInvisble(chickenSprite);
+
+                                    // after a second
                                     toilet.postDelayed(new Runnable() {
                                         public void run() {
+
+                                            // make splash sound
                                             AudioHandler.checkMute(splash_sound, mute_clicked);
-                                            // push boolean mute_clicked
+
+                                            // start escapeactivity
                                             Intent escapeactivity = new Intent(MainActivity.this, EscapeActivity.class);
+
+                                            // push boolean mute_clicked
                                             escapeactivity.putExtra("mute_clicked", mute_clicked);
                                             startActivity(escapeactivity);
+
+                                            // make chickensprite comeback in case the backbutton is pressed
+                                            chickenSprite.postDelayed(new Runnable() {
+                                                public void run() {
+                                                    SpriteHandler.spriteVisible(chickenSprite);
+                                                }
+                                            }, 2000);
                                         }
                                     }, 1000);
                                 }
@@ -315,7 +408,10 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             });
+
         }
+
+        // if the user did not type the right answer, make lock_clicked false so he can go back to lockactivity
         else {  lock_clicked = false;}
     }
 
@@ -335,10 +431,12 @@ public class MainActivity extends AppCompatActivity {
         chicken_text_2.setVisibility(View.INVISIBLE);
     }
 
+    // makes certain sprites invisible to begin with
     public void defaultSpriteVisibility(){
         SpriteHandler.spriteInvisble(snakeSprite);
         SpriteHandler.spriteInvisble(chickenSprite_2);
         SpriteHandler.spriteInvisble(chickenSprite_3);
+        SpriteHandler.spriteInvisble(chickenSprite_4);
         SpriteHandler.spriteInvisble(feather);
         SpriteHandler.spriteInvisble(eggs);
         SpriteHandler.spriteInvisble(eggs_lit);
@@ -353,7 +451,6 @@ public class MainActivity extends AppCompatActivity {
 
     // makes lightbulbs turn on and off in a certain pattern
     public void lightBulbs(){
-        //spriteInvisble(bulb_off_1);
         SpriteHandler.spriteDisRe(bulb_off_2, dis_ap_time);
         SpriteHandler.spriteApDis(bulb_on_2, dis_ap_time);
         bulb_on_1.postDelayed(new Runnable() {
@@ -369,24 +466,35 @@ public class MainActivity extends AppCompatActivity {
             }
         }, 4000);
     }
+
+    // makes sprite walk to the right
     public void walkAnimationRight(){
+
         // make the sprite that stands still disappear for a second and reappear
         SpriteHandler.spriteInvisble(chickenSprite);
+        SpriteHandler.spriteInvisble(chickenSprite_4);
         SpriteHandler.spriteDisRe(chickenSprite, dis_ap_time);
+
         // make the Sprite that walks appear for a second and then disappear
         SpriteHandler.spriteVisible(chickenSprite_2);
         SpriteHandler.spriteApDis(chickenSprite_2, dis_ap_time);
+
         // update LeftMargin to make chickensprite move (by calling class ettings)
         SpriteHandler.spriteRight(chickenSprite);
+
         // update margins of invisible sprites
         SpriteHandler.spriteRight(chickenSprite_2);
         SpriteHandler.spriteRight(chickenSprite_3);
+        SpriteHandler.spriteRight(chickenSprite_4);
         SpriteHandler.spriteRight(feather);
     }
+
+    // makes sprite walk to the left
     public void walkAnimationLeft(){
+
         // make the sprite that stands still disappear for a second and reappear
         SpriteHandler.spriteInvisble(chickenSprite);
-        SpriteHandler.spriteDisRe(chickenSprite, dis_ap_time);
+        SpriteHandler.spriteDisRe(chickenSprite_4, dis_ap_time);
 
         //make the sprite that walks appear for a second and then disappear
         SpriteHandler.spriteVisible(chickenSprite_3);
@@ -398,36 +506,51 @@ public class MainActivity extends AppCompatActivity {
         // update margins of invisible sprites
         SpriteHandler.spriteLeft(chickenSprite_2);
         SpriteHandler.spriteLeft(chickenSprite_3);
+        SpriteHandler.spriteLeft(chickenSprite_4);
         SpriteHandler.spriteLeft(feather);
     }
+
+    // makes texts and snake appear when flusher is clicked
     public void flusherClicked(){
+
         // update count_flush
         count_flush++;
+
         // the first two times
         if (count_flush < 3) {
+
             // show flush text 1
             defaultTextVisibility();
             TextHandler.textPopUp(flush_text_1, textpop_time);
         }
+
         // the 3rd time
         if (count_flush == 3) {
             defaultTextVisibility();
+
             // show flush text 2
             TextHandler.textPopUp(flush_text_2, textpop_time);
 
         }
+
         // the 4th time
         if (count_flush == 4) {
+
             // show flush text 3
             defaultTextVisibility();
             TextHandler.textPopUp(flush_text_3, textpop_time);
         }
+
         // the 5th time
         if (count_flush > 4 && solved == false) {
-            // make snake appear and show flush text 4
+
+            // play splashsound
             AudioHandler.checkMute(splash_sound, mute_clicked);
+
+            // after a second
             snakeSprite.postDelayed(new Runnable() {
                 public void run() {
+                    // show snake and flushtext4
                     SpriteHandler.spriteVisible(snakeSprite);
                     defaultTextVisibility();
                     TextHandler.textPopUp(flush_text_4, textpop_time);
@@ -435,16 +558,32 @@ public class MainActivity extends AppCompatActivity {
             }, 1000);
         }
     }
+
+    // makes snake talk and eat the eggs
     public void snakeClicked(){
+
+        // if the user is close enough and the eggs haven't been eaten
         if (SpriteHandler.getRange(chickenSprite, 420, 600)&&snake_ate_eggs ==  false) {
+
+            // show flushtext4
             defaultTextVisibility();
             TextHandler.textPopUp(flush_text_4, textpop_time);
+
+            // if the eggs have been selected but not eaten yet
             if (eggs_clicked && snake_ate_eggs == false) {
+
+                // make bitesound
                 AudioHandler.checkMute(bite_sound, mute_clicked);
+
+                // after a second
                 snakeSprite.postDelayed(new Runnable() {
                     public void run() {
+
+                        // make selected eggs invisible
                         SpriteHandler.spriteInvisble(eggs_lit);
                         flush_text_4.setVisibility(View.INVISIBLE);
+
+                        // show snakes new text
                         defaultTextVisibility();
                         TextHandler.textPopUp(snake_text_1, textpop_time);
                     }
@@ -453,23 +592,37 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+    // makes fatchicken give eggs and start lockactivity
     public void fatchickenClicked(){
-        AudioHandler.checkMute(chicken_sound, mute_clicked);
+
+        // if user is close enough
         if (SpriteHandler.getRange(chickenSprite, 100, 400)) {
+
+            // make chickensound
+            AudioHandler.checkMute(chicken_sound, mute_clicked);
             chicken_talked = true;
+
             // if there is no feather yet
             if (feather_visible == false) {
+
                 // show fat chicken text
                 defaultTextVisibility();
                 TextHandler.textPopUp(fatchicken_text_1, textpop_time);
             }
 
+            // if there is a feather but the eggs have not been eaten yet
             if ((feather_visible) && (snake_ate_eggs == false)) {
+
                 // show fat chicken text 2
                 defaultTextVisibility();
                 TextHandler.textPopUp(fatchicken_text_2, textpop_time);
+
+                // after a second
                 eggs.postDelayed(new Runnable() {
                     public void run() {
+
+                        // make eggs visible and feather invisible
                         SpriteHandler.spriteVisible(eggs);
                         SpriteHandler.spriteInvisble(feather);
                         feather_used = true;
@@ -477,43 +630,67 @@ public class MainActivity extends AppCompatActivity {
                 }, 2000);
             }
 
-            // if the sprite is clicked and the snake already ate the eggs
+            // if the  snake already ate the eggs
             if (snake_ate_eggs) {
                 SpriteHandler.spriteInvisble(eggs);
                 defaultTextVisibility();
                 TextHandler.textPopUp(fatchicken_text_3, textpop_time);
-                // start Lockactivity
+
+                // start Lockactivity (make sure the link can only be clicked once)
                 if (lock_clicked == false){
                     fatChickenSprite.postDelayed(new Runnable() {
                         public void run() {
                             Intent lockactivity = new Intent(MainActivity.this, LockActivity.class);
+
+                            // push boolean mute_clicked to lockactivity
                             lockactivity.putExtra("mute_clicked", mute_clicked);
                             startActivityForResult(lockactivity, 1);
                         }
-                    }, 3000);}
+                    }, 3000);
+                }
+
+                // set lockclicked to true so the link can't be clicked again
                 lock_clicked = true;
             }
         }
     }
+
+    // make chicken pull out feather and show a text
     public void chickenClicked(){
+
+        // if he has talked to fatchicken but not yet used his feather
         if (chicken_talked && feather_used == false) {
-            // show feather (chicken pulls out his feather)
+
+            // show feather
             SpriteHandler.spriteVisible(feather);
             feather_visible = true;
+
+            // show chickentext2
+            defaultTextVisibility();
             TextHandler.textPopUp(chicken_text_2, textpop_time);
         }
     }
+
+    // starts scrollactivity
     public void scrollClicked(){
+
+        // if user is close enough
         if (SpriteHandler.getRange(chickenSprite, 280, 455)) {
+
+            // start scrollactivity
             Intent scrollactivity = new Intent(MainActivity.this, ScrollActivity.class);
             startActivity(scrollactivity);
         }
     }
+
+    // changes icon and function of mute to unmute
     public void muteClicked(){
         mute_clicked = true;
         SpriteHandler.spriteInvisble(mute);
         SpriteHandler.spriteVisible(unmute);
     }
+
+    // changes icon and function of unmute to mute
     public void unmuteClicked(){
         mute_clicked = false;
         SpriteHandler.spriteInvisble(unmute);
