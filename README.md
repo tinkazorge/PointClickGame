@@ -1,7 +1,7 @@
 ## Chicken Battery Planet
 ### Tinka Zorge
 
-Deze app is een point en click puzzlegame met als doel entertainment. Er zijn twee levels waarin je puzzels moet maken om de hoofdpersoon, het kuiken, te bevrijden uit chicken battery planet. De launchActivity is een startscherm.
+Deze app is een point en click puzzlegame met als doel entertainment. Er zijn twee levels waarin je puzzels moet maken om de hoofdsprite te bevrijden uit chicken battery planet. De eerste activity die wordt gelancheerd bij het starten van de app is een startscherm.
 
 ![alt text] (https://github.com/tinkazorge/PointClickGame/blob/master/doc/Screenshot_2016-06-23-14-07-33.png "StartActivitity")
 
@@ -21,7 +21,7 @@ Als deze puzzel is opgelost, kan de vrijgelaten kip aan de slang worden gevoerd.
 
 ![alt text] (https://github.com/tinkazorge/PointClickGame/blob/master/doc/Screenshot_2016-06-23-10-19-28.png "MainActivity_2")
 
-Hierna kan de hoofdspersoon via de wc ontsnappen naar het volgende level, waar hij een brug moet bouwen van buizen om naar de 
+Hierna kan de hoofdpersoon via de wc ontsnappen naar het volgende level, waar hij een brug moet bouwen van buizen om naar de 
 overkant te komen. 
 
 ![alt text] (https://github.com/tinkazorge/PointClickGame/blob/master/doc/Screenshot_2016-06-23-14-10-25.png "EscapeActivity")
