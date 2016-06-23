@@ -49,7 +49,6 @@ Status API Training Shop Blog About
 
 ### Sources
 
-Bronnen
 http://www.istockphoto.com/vector/fat-chicken-gm165722148-11967795 (fatchicken)
 http://www.moddb.com/mods/savage-defiance/images/prison-background-map (background main)
 http://www.robertdayton.com/blog/ (background lock)
