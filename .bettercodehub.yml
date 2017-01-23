@@ -1,5 +1,1 @@
-exclude:
-- /mylibrary/src/.*
-component_depth: 1
-languages:
-- java
+
